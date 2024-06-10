@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div class="box-border pb-8">
+    <h1 class="text-principal text-center text-3xl font-bold mt-10">
+        IMPORTANTE
+    </h1>
+    <h3 class="text-principal text-justify mx-10 my-0 py-0 text-lg font-normal mt-4">
+        Los postulantes que han sido validados como locales por las respectivas autoridades y Comités
+        de Empleo de las zonas de influencia social de la Unidad Minera San Rafael, podrán tener acceso
+        gratuito a esta plataforma digital para postular al puesto de trabajo de su interés. En caso de
+        no estar validado, puede solicitar su acceso a través del botón "Solicitar acceso" e
+        informaremos a las autoridades y Comités de Empleo para su revisión correspondiente.
+    </h3>
+    <div class="text-center m-3">
+        <p-button styleClass="bg-principal" label="Atrás" icon="pi pi-arrow-left" (click)="redirectToInit()" scrollToUp>
+        </p-button>
+    </div>
+    <div
+        class="mx-auto w-10/12 lg:w-9/12 h-auto lg:h-[32rem] flex flex-col lg:flex-row relative bg-white rounded-2xl overflow-hidden shadow-custom">
+        <div class="w-full lg:w-1/2 overflow-hidden">
+            <form class="h-full flex flex-col justify-center items-center px-4 lg:px-20 py-4"
+                [formGroup]="userLoginForm" (ngSubmit)="login()">
+                <h2 class="text-3xl mb-5 text-principal font-semibold">INICIAR SESIÓN</h2>
+                <span class="mb-4">Use su DNI y Fecha de nacimiento</span>
+                <div class="w-full px-2">
+                    <div class="p-fluid">
+                        <label for="number">Documento de identidad</label>
+                        <input id="number" pInputText type="text" formControlName="number" maxlength="8" minlength="8"
+                            onlyNumbers />
+                        @if( userLoginForm.get('number')?.invalid && userLoginForm.get('number')?.touched){
+                        <span class="p-error block">Requerido</span>}
+                    </div>
+                </div>
+                <div class="w-full px-2 mt-4">
+                    <div class="p-fluid">
+                        <label for="date">Fecha Nacimiento</label>
+                        <p-calendar id="date" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true"
+                            inputId="icondisplay" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today"
+                            formControlName="date" dateMask />
+                        @if( userLoginForm.get('date')?.invalid && userLoginForm.get('date')?.touched){
+                        <span class="p-error block">Requerido</span>}
+                    </div>
+                </div>
+                <p-button styleClass="mt-4 bg-principal" [raised]="true" type="submit" icon="pi pi-sign-in" scrollToUp
+                    label="Iniciar Sesion" />
+                <a href="#" class="text-principal mt-3" (click)="openDialogForget($event)">¿Olvidaste
+                    como
+                    ingresar?</a>
+            </form>
+        </div>
+        <div
+            class="relative w-full lg:w-1/2 h-[28rem] lg:h-full flex items-center justify-center custom-gradient-bg overflow-hidden">
+            <div class="absolute flex items-center flex-col text-center gap-5 p-4 lg:p-10 text-white">
+                <h1 class="text-3xl">¿Aún no tienes cuenta? Regístrate aquí</h1>
+                <p class="py-5">Registra tus datos personales para aprovechar todas las funcionalidades del
+                    sitio.</p>
+                <p-button (click)="openDialogRegister()" styleClass="text-white" [outlined]="true" label="Registrarse"
+                    icon="pi pi-user" />
+            </div>
+        </div>
+    </div>
+</div>
+<p-confirmDialog [style]="{ width: '350px' }" />
+<app-footer></app-footer>

@@ -1,0 +1,86 @@
+<div class="py-2 px-3">
+    <p class="bg-red-200 text-justify p-3 italic rounded"><span class="font-bold">Nota:
+        </span>El registro de datos en este formulario es solo para las personas residentes en la zona de influencia
+        de la Unidad Minera de San Rafael - MINSUR.
+    </p>
+</div>
+<form [formGroup]="formGroup" class="pb-12 px-3" (ngSubmit)="onSubmit()">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-fluid">
+            <label for="docTypeId">Tipo de documento</label>
+            <p-dropdown id="docTypeId" formControlName="docTypeId" [showClear]="true" [options]="dataSourceDocumentType"
+                optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            <div class="p-error" [innerHTML]="generateErrorMessages('docTypeId')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="numdoc">N° Documento</label>
+            <input id="numdoc" pInputText type="text" formControlName="numdoc">
+            <div class="p-error" [innerHTML]="generateErrorMessages('numdoc')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="firstName">Primer Nombre</label>
+            <input id="firstName" pInputText type="text" formControlName="firstName">
+            <div class="p-error" [innerHTML]="generateErrorMessages('firstName')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="middleName">Segundo Nombre</label>
+            <input id="middleName" pInputText type="text" formControlName="middleName">
+            <div class="p-error" [innerHTML]="generateErrorMessages('middleName')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="lastPatName">Apellido paterno</label>
+            <input id="lastPatName" pInputText type="text" formControlName="lastPatName">
+            <div class="p-error" [innerHTML]="generateErrorMessages('lastPatName')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="lastMatName">Apellido materno</label>
+            <input id="lastMatName" pInputText type="text" formControlName="lastMatName">
+            <div class="p-error" [innerHTML]="generateErrorMessages('lastMatName')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="genderId">Género</label>
+            <p-dropdown id="genderId" formControlName="genderId" [showClear]="true" [options]="dataSourceGender"
+                optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            <div class="p-error" [innerHTML]="generateErrorMessages('genderId')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="birthDate">Fecha Nacimiento</label>
+            <p-calendar id="birthDate" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"
+                [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today" formControlName="birthDate" dateMask />
+            <div class="p-error" [innerHTML]="generateErrorMessages('birthDate')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="email">Correo Electrónico</label>
+            <input id="email" pInputText type="text" formControlName="email" placeholder="email@example.com">
+            <div class="p-error" [innerHTML]="generateErrorMessages('email')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="level4Name">Distrito/Comunidad</label>
+            <input id="level4Name" pInputText type="text" formControlName="level4Name">
+            <div class="p-error" [innerHTML]="generateErrorMessages('level4Name')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="phoneNumber">Nro de celular</label>
+            <input id="phoneNumber" pInputText type="text" formControlName="phoneNumber" onlyNumbers>
+            <div class="p-error" [innerHTML]="generateErrorMessages('phoneNumber')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="comment">Comentarios</label>
+            <textarea id="comment" rows="5" cols="30" pInputText type="text" formControlName="comment"></textarea>
+            <div class="p-error" [innerHTML]="generateErrorMessages('comment')"></div>
+        </div>
+    </div>
+    <button type="submit" #submitButton hidden></button>
+</form>
+<div class="px-4 pt-4 footer-custom">
+    <p-button [outlined]="true" label="CANCELAR" icon="pi pi-times" (click)="close()" class="mr-2" />
+    <p-button styleClass="bg-principal" (click)="submitButton.click()" label="GUARDAR" icon="pi pi-save" />
+</div>

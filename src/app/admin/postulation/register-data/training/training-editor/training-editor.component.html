@@ -1,0 +1,78 @@
+<form [formGroup]="formGroup" class="px-4 pb-10 pt-4" (ngSubmit)="onSubmit()">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-fluid">
+            <label for="typeId">Tipo de capacitación</label>
+            <p-dropdown id="typeId" formControlName="typeId" [showClear]="true" [options]="capacitationType"
+                optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            <div class="p-error" [innerHTML]="generateErrorMessages('typeId')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="levelId">Nivel de capacitación</label>
+            <p-dropdown id="levelId" formControlName="levelId" [showClear]="true" [options]="trainingLevel"
+                optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            <div class="p-error" [innerHTML]="generateErrorMessages('levelId')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="institution">Institución</label>
+            <input id="institution" pInputText type="text" formControlName="institution">
+            <div class="p-error" [innerHTML]="generateErrorMessages('institution')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="description">Descripción</label>
+            <textarea id="description" rows="5" cols="30" pInputText type="text"
+                formControlName="description"></textarea>
+            <div class="p-error" [innerHTML]="generateErrorMessages('description')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="date_start">Fecha de inicio</label>
+            <p-calendar id="date_start" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"
+                [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today" formControlName="date_start" dateMask />
+            <div class="p-error" [innerHTML]="generateErrorMessages('date_start')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="date_end">Fecha de fin</label>
+            <p-calendar id="date_end" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"
+                [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today" formControlName="date_end" dateMask />
+            <div class="p-error" [innerHTML]="generateErrorMessages('date_end')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="hours">Horas</label>
+            <input id="hours" pInputText type="text" formControlName="hours" onlyNumbers [maxlength]="10">
+            <div class="p-error" [innerHTML]="generateErrorMessages('hours')"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2">
+            <div>
+                <span>¿Capacitación interna?</span>
+            </div>
+            <div class="field-radiobutton">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="col">
+                        <p-radioButton name="is_internal" [value]="true" formControlName="is_internal"
+                            inputId="true"></p-radioButton>
+                        <label class="ml-2" for="true">Sí</label>
+                    </div>
+                    <div class="col">
+                        <p-radioButton name="is_internal" [value]="false" formControlName="is_internal"
+                            inputId="false"></p-radioButton>
+                        <label class="ml-2" for="false">No</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <button type="submit" #submitButton hidden></button>
+</form>
+<div class="px-4 pt-4 footer-custom">
+    <p-button label="CANCELAR" [outlined]="true" styleClass="mr-2 " icon="pi pi-times" (click)="close()" />
+    <p-button (click)="submitButton.click()" styleClass="bg-principal" [label]="isCreationMode()?'REGISTRAR':'GUARDAR'"
+        icon="pi pi-save" />
+</div>

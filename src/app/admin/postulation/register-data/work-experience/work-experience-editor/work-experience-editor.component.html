@@ -1,0 +1,59 @@
+<form [formGroup]="formGroup" class="px-4 pb-10 pt-4" (ngSubmit)="onSubmit()">
+    <div class="grid grid-cols-1 gap-4">
+        <div class="p-fluid">
+            <label for="companyName">Empresa/Organización</label>
+            <input id="companyName" pInputText type="text" formControlName="companyName">
+            <div class="p-error" [innerHTML]="generateErrorMessages('companyName')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="typeId">Tipo mano de obra</label>
+            <p-dropdown id="typeId" formControlName="typeId" [showClear]="true" [options]="molType" optionLabel="text"
+                optionValue="id" placeholder="--Seleccionar--" />
+            <div class="p-error" [innerHTML]="generateErrorMessages('typeId')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="areaName">Área/Unidad/Dpto de trabajo</label>
+            <input id="areaName" pInputText type="text" formControlName="areaName">
+            <div class="p-error" [innerHTML]="generateErrorMessages('areaName')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="positionName">Puesto de trabajo</label>
+            <input id="positionName" pInputText type="text" formControlName="positionName">
+            <div class="p-error" [innerHTML]="generateErrorMessages('positionName')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="start_date">Fecha de inicio</label>
+            <p-calendar id="start_date" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"
+                [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today" formControlName="start_date" dateMask />
+            <div class="p-error" [innerHTML]="generateErrorMessages('start_date')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="end_date">Fecha de fin</label>
+            <p-calendar id="end_date" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"
+                [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today" formControlName="end_date" dateMask />
+            <div class="p-error" [innerHTML]="generateErrorMessages('end_date')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 mt-2">
+        <div class="p-fluid">
+            <label for="description">Descripción</label>
+            <textarea id="description" rows="5" cols="30" pInputText type="text"
+                formControlName="description"></textarea>
+            <div class="p-error" [innerHTML]="generateErrorMessages('description')"></div>
+        </div>
+    </div>
+    <button type="submit" #submitButton hidden></button>
+</form>
+<div class="px-4 pt-4 footer-custom">
+    <p-button label="CANCELAR" [outlined]="true" styleClass="mr-2 " icon="pi pi-times" (click)="close()" />
+    <p-button (click)="submitButton.click()" styleClass="bg-principal" [label]="isCreationMode()?'REGISTRAR':'GUARDAR'"
+        icon="pi pi-save" />
+</div>

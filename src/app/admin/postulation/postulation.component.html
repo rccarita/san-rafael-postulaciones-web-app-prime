@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div>
+    <h3 class="text-principal text-3xl font-bold mt-32 md:mt-20 mx-10 uppercase">
+        Estimado Postulante
+    </h3>
+    <h3 class="text-principal text-justify mx-10 my-0 py-0 text-lg font-normal mt-4">
+        Esta plataforma digital le brinda la oportunidad de postularse para los puestos de trabajo ofrecidos por
+        diversas empresas contratistas y MINSUR – Unidad Minera San Rafael.<br>
+        Le recomendamos que al postularse para un puesto en particular, tenga en cuenta su experiencia laboral y
+        formación académica relacionada. También es aconsejable mantener su Curriculum vitae actualizado en esta
+        plataforma para reflejar con precisión su perfil profesional.
+    </h3>
+    <div>
+        <p-tabView styleClass="p-10">
+            <p-tabPanel header="Convocatorias vigentes">
+                <app-current-calls></app-current-calls>
+            </p-tabPanel>
+            <p-tabPanel header="Mis postulaciones">
+                <ng-template pTemplate="content">
+                    <app-my-postulations></app-my-postulations>
+                </ng-template>
+            </p-tabPanel>
+            <p-tabPanel header="Registro y actualización de CV">
+                <ng-template pTemplate="content">
+                    <p-fieldset styleClass="mt-4" legend="1. Información Personal" [toggleable]="true">
+                        <app-personal-information [documentTypes]="documentTypes" [civilStates]="civilStates"
+                            [genders]="genders" [licenseDrives]="licenseDrives"
+                            [personId]="person"></app-personal-information>
+                    </p-fieldset>
+                    <p-fieldset styleClass="mt-4" legend="2.Lugar de nacimiento" [toggleable]="true">
+                        <app-personal-information-data-birth [personId]="person" [provinces]="provinces"
+                            [districts]="districts" [departments]="departments"></app-personal-information-data-birth>
+                    </p-fieldset>
+                    <p-fieldset styleClass="mt-4" legend="3.Lugar de residencia" [toggleable]="true">
+                        <app-personal-information-data-ubigeo [personId]="person" [provinces]="provinces"
+                            [districts]="districts" [departments]="departments"></app-personal-information-data-ubigeo>
+                    </p-fieldset>
+                    <p-fieldset styleClass="mt-4" legend="4. Formación académica(educación)" [toggleable]="true">
+                        <app-academic-training [educationLevels]="educationLevels"
+                            [personId]="person"></app-academic-training>
+                    </p-fieldset>
+                    <p-fieldset styleClass="mt-4" legend="5. Capacitaciones (cursos/talleres/especializaciones)"
+                        [toggleable]="true">
+                        <app-training [trainingLevel]="trainingLevel" [personId]="person"
+                            [capacitationType]="capacitationType"></app-training>
+                    </p-fieldset>
+                    <p-fieldset styleClass="mt-4" legend="5. Experiencia Laboral" [toggleable]="true">
+                        <app-work-experience [molType]="molType" [personId]="person"></app-work-experience>
+                    </p-fieldset>
+                </ng-template>
+            </p-tabPanel>
+            <p-tabPanel header="Subir Curriculum vitae">
+                <ng-template pTemplate="content">
+                    <app-upload-cv [person]="person" (documentsUpdated)="onDocumentsUpdated()"></app-upload-cv>
+                </ng-template>
+            </p-tabPanel>
+            <p-tabPanel header="Otros documentos">
+                <ng-template pTemplate="content">
+                    <app-other-documents [person]="person" [filesUploaded]="filesUploaded"
+                        (documentsUpdated)="onDocumentsUpdated()"></app-other-documents>
+                </ng-template>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>
+<app-footer></app-footer>

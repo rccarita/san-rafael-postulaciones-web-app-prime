@@ -1,0 +1,21 @@
+<form [formGroup]="personDataBirthFormGroup">
+    <div formGroupName="birthUbigeo">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div class="p-fluid">
+                <label for="level1Id">Estado civil</label>
+                <p-dropdown id="level1Id" formControlName="level1Id" [showClear]="true" [options]="departments()"
+                    optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            </div>
+            <div class="p-fluid">
+                <label for="level2Id">Estado civil</label>
+                <p-dropdown id="level2Id" formControlName="level2Id" [showClear]="true" [options]="provinces()"
+                    optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            </div>
+            <div class="p-fluid">
+                <label for="level3Id">Estado civil</label>
+                <p-dropdown id="level3Id" formControlName="level3Id" [showClear]="true" [options]="districts()"
+                    optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            </div>
+        </div>
+    </div>
+</form>

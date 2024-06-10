@@ -1,0 +1,35 @@
+<form [formGroup]="personDataUbigeoFormGroup">
+    <div formGroupName="ubigeo">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div class="p-fluid">
+                <label for="level1Id">Estado civil</label>
+                <p-dropdown id="level1Id" formControlName="level1Id" [showClear]="true" [options]="departments()"
+                    optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            </div>
+            <div class="p-fluid">
+                <label for="level2Id">Estado civil</label>
+                <p-dropdown id="level2Id" formControlName="level2Id" [showClear]="true" [options]="provinces()"
+                    optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            </div>
+            <div class="p-fluid">
+                <label for="level3Id">Estado civil</label>
+                <p-dropdown id="level3Id" formControlName="level3Id" [showClear]="true" [options]="districts()"
+                    optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-8">
+            <div class="p-fluid">
+                <label for="level4Name">Ámbito/Comunidad</label>
+                <input id="level4Name" [maxLength]="80" pInputText type="text" formControlName="level4Name">
+            </div>
+            <div class="p-fluid">
+                <label for="level5Name">Ámbito/Comunidad</label>
+                <input id="level5Name" [maxLength]="80" pInputText type="text" formControlName="level5Name">
+            </div>
+            <div class="p-fluid">
+                <label for="level6Name">Ámbito/Comunidad</label>
+                <input id="level6Name" [maxLength]="80" pInputText type="text" formControlName="level6Name">
+            </div>
+        </div>
+    </div>
+</form>

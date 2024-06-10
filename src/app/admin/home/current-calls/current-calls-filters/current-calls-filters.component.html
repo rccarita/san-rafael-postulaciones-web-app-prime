@@ -1,0 +1,10 @@
+<div class="flex gap-4 mb-3">
+    <p-iconField iconPosition="left">
+        <p-inputIcon styleClass="pi pi-search" />
+        <input placeholder="Buscar por contratista o Puesto..." class="w-[320px]" [(ngModel)]="textSearch"
+            (input)="setSearchFilterValue($event)" pInputText type="text">
+    </p-iconField>
+    <span class="grow"></span>
+    <p-button [disabled]="!activeFilters.length" severity="secondary" [raised]="true" (click)="clearFilters()"
+        label="Limpiar filtros" icon="pi pi-times" />
+</div>

@@ -1,0 +1,128 @@
+<div class="h-auto p-8">
+    <h3 class="text-principal text-lg font-medium">
+        Empresa: {{workOffers.companyName}}, contratista de MINSUR requiere contar con el siguiente personal:
+    </h3>
+    <div class="bg-white shadow-md mb-3">
+        <div class="bg-secondary text-white px-4 py-2">
+            1. INFORMACIÓN GENERAL
+        </div>
+        <div class="p-2">
+            <table class="summary-table">
+                <tr>
+                    <td>PUESTO DE TRABAJO:</td>
+                    <td>{{workOffers.name}}</td>
+                </tr>
+                <tr>
+                    <td>NÚMERO DE VACANTES:</td>
+                    <td>{{zeroPad(workOffers.quantity, 2)}}</td>
+                </tr>
+                <tr>
+                    <td>TIPO DE MANO DE OBRA:</td>
+                    <td> {{workOffers.molTypeName}}</td>
+                </tr>
+                <tr>
+                    <td>CATEGORÍA:</td>
+                    <td>{{workOffers.jobLevelName}}</td>
+                </tr>
+                <tr>
+                    <td>MOTIVO DE LA CONTRATACIÓN:</td>
+                    <td>{{workOffers.hiringReasonName}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="bg-white shadow-md mb-3">
+        <div class="bg-secondary text-white px-4 py-2">
+            2. REQUISITOS
+        </div>
+        <div class="p-2">
+            <table class="table summary-table">
+                <tr>
+                    <td>FORMACIÓN ACADÉMICA:</td>
+                    <td>{{workOffers.educationalBackgrounds}}</td>
+                </tr>
+                <tr>
+                    <td>TIEMPO DE EXPERIENCIA:</td>
+                    <td>{{zeroPad(workOffers.generalExperienceYears, 2)}} MESES GENERAL -
+                        {{zeroPad(workOffers.specificExperienceYears, 2)}} MESES ESPECIFICO EN
+                        {{workOffers.specificExperienceDescription}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>COMPETENCIAS Y HABILIDADES:</td>
+                    <td>{{workOffers.skillsAndAbilities}}</td>
+                </tr>
+                <tr>
+                    <td>FUNCIONES DEL PUESTO:</td>
+                    <td>{{workOffers.specificExperienceDescription}}</td>
+                </tr>
+                <tr *ngIf="!viewPostulate">
+                    <td colspan="2">* NO TENER VÍNCULO CON OTRAS EMPRESAS EN LA U.M SAN RAFAEL</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="bg-white shadow-md mb-3">
+        <div class="bg-secondary text-white px-4 py-2">
+            3. PLAZO Y LUGAR DE TRABAJO
+        </div>
+        <div class="p-2">
+            <table class="table summary-table">
+                <tr>
+                    <td>TIEMPO DE CONTRATACIÓN (meses):</td>
+                    <td class="replace-bg">{{zeroPad(workOffers.hiringMonths, 2)}} MESES</td>
+                    <td class="replace-bg">SUJETO A RENOVACIÓN</td>
+                    <td class="{{workOffers.isRenewableAnswer === 'Y' ? 'bg-green-500' : ''}} text-center"> SI
+                    </td>
+                    <td class="text-center replace-bg"> X </td>
+                    <td
+                        class="{{workOffers.isRenewableAnswer === 'N' ? 'bg-red-500' : ''}} text-center renovation table-no">
+                        NO
+                    </td>
+                </tr>
+                <tr>
+                    <td>LUGAR DE TRABAJO:</td>
+                    <td colspan="5">{{workOffers.workplaceName}}</td>
+                </tr>
+                <tr>
+                    <td>ÁREA O EMPRESA ESPONSOR:</td>
+                    <td colspan="5">{{workOffers.areaName}}</td>
+                </tr>
+                <tr>
+                    <td>CIERRE DEL PROCESO DE RECEPCIÓN DE CV:</td>
+                    <td colspan="5">{{workOffers.endDate |date:"dd/MM/yyyy hh:mm a" }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="bg-white shadow-md mb-3" *ngIf="viewPostulate">
+        <div class="bg-secondary text-white px-3">
+            4. OTROS
+        </div>
+        <div class="p-2">
+            <table class="table table-dark">
+                <tr>
+                    <td colspan="2">
+                        <span class="font-bold text-center text-red-500"> Esta sección del formulario tiene el
+                            caracter de declaración
+                            jurada.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Ud. al darle click en la opción <strong>"POSTULAR"</strong> acepta que no tiene
+                        vínculo laboral
+                        con alguna(s) empresa(s) contratistas de MINSUR.
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-center pb-5">
+        <p-button class="m-3" icon="pi pi-save" label="POSTULAR" mat-raised-button (click)="savePostulation()"
+            *ngIf="viewPostulate" />
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<header>
+    <div class="fixed inset-0 flex h-24 justify-between z-10" [class.navbar-fixed]="scrolled">
+        <div class="container-logo flex items-center">
+            <img [src]="scrolled ? '/assets/images/minsur.png' : '/assets/images/minsur-blanco.png'" alt="logo">
+        </div>
+        <div class="flex items-center">
+            <p-button [severity]="scrolled ? 'warning' : 'success'" size="small" [raised]="true" class="mr-4"
+                href="https://gesso-sanrafael.stcloud.app/ayudapostulante/" target="_blank">Ver Manual</p-button>
+            <img class="h-full" src="/assets/images/colores-minsur.png" alt="colors">
+        </div>
+    </div>
+
+    <div class="m-0 h-100 w-full relative">
+        <img class="inset-0 object-cover w-full h-[405px]" src="/assets/images/banner_san_rafael1.png" alt="logo">
+    </div>
+</header>
+<div>
+    <span class="block overflow-hidden relative">
+        <span class="block py-12">
+            <img class="absolute inset-0 min-w-full" alt="" src="/assets/images/separador.png" decoding="async">
+        </span>
+    </span>
+</div>
+<div class="pr-7" *ngIf="existSession">
+    <div class="float-right relative bg-principal w-30 h-20 rounded flex items-center justify-center">
+        <button class="relative mt-2 p-button p-button-icon-only" (click)="menu.toggle($event)">
+            <img class="rounded-full w-10 h-10 object-cover hidden md:block"
+                src="./../../../../../assets/images/user_icon.png" alt="Logo user" />
+            <i class="pi pi-chevron-down absolute bottom-0 right-0 text-white bg-black rounded-full p-1"></i>
+        </button>
+
+        <p-tieredMenu #menu [popup]="true">
+            <ng-template pTemplate="item">
+                <li pMenuItem (click)="closeSession()">
+                    <i class="pi pi-sign-out"></i>
+                    <span>Cerrar sesión</span>
+                </li>
+            </ng-template>
+        </p-tieredMenu>
+    </div>
+
+    <div class="whitespace-nowrap align-middle float-right mr-1">
+        <div class="bg-principal rounded p-4 text-white text-lg h-12">
+            <div>{{personInfo.name || 'NAME LASTNAME NOT FOUND'}}</div>
+            <div>DNI: {{personInfo.username}}</div>
+        </div>
+    </div>
+</div>

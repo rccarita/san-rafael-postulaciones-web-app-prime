@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="box-border">
+    <h3 class="text-principal text-justify mx-10 my-0 py-0 text-lg font-normal mt-4">
+        En este portal web, encontrará las convocatorias vigentes de los diferentes puestos de trabajo para
+        contratar mano de obra del área de influencia social de la Unidad Minera San Rafael. En este espacio también
+        podrá postularse al puesto de trabajo de su interés, siempre y cuando cumpla con los requisitos.
+    </h3>
+    <p-tabView styleClass="p-10">
+        <p-tabPanel header="Convocatorias vigentes para postular">
+            <div class="relative">
+                <div class="bg-white shadow-md">
+                    <div class="bg-principal text-white px-4 py-2 text-sm">
+                        Búsqueda de Convocatorias
+                    </div>
+                    <div class="p-4">
+                        <ng-container>
+                            <app-current-calls></app-current-calls>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Convocatorias en proceso y/o concluidas">
+            <div class="relative">
+                <div class="bg-white shadow-md">
+                    <div class="bg-principal text-white px-4 py-2 text-sm">
+                        Búsqueda de Convocatorias
+                    </div>
+                    <div class="p-4">
+                        <ng-container>
+                            <app-history-calls></app-history-calls>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+</div>
+<app-footer></app-footer>

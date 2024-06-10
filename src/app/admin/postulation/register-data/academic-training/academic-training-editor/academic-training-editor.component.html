@@ -1,0 +1,43 @@
+<p-toast />
+<form [formGroup]="formGroup" class="pb-12 pt-4" (ngSubmit)="onSubmit()">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="p-fluid">
+            <label for="id_level">Grado de instrucción</label>
+            <p-dropdown id="id_level" formControlName="id_level" [showClear]="true" [options]="educationLevels"
+                optionLabel="text" optionValue="id" placeholder="--Seleccionar--" />
+            <div class="p-error" [innerHTML]="generateErrorMessages('id_level')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="specialty">Especialidad</label>
+            <input id="specialty" pInputText type="text" formControlName="specialty">
+            <div class="p-error" [innerHTML]="generateErrorMessages('specialty')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 gap-4">
+        <div class="p-fluid">
+            <label for="center">Centro de estudios</label>
+            <input id="center" pInputText type="text" formControlName="center">
+            <div class="p-error" [innerHTML]="generateErrorMessages('center')"></div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="p-fluid">
+            <label for="date_start">Fecha de inicio</label>
+            <p-calendar id="date_start" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"
+                [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today" formControlName="date_start" dateMask />
+            <div class="p-error" [innerHTML]="generateErrorMessages('date_start')"></div>
+        </div>
+        <div class="p-fluid">
+            <label for="date_end">Fecha de fin</label>
+            <p-calendar id="date_end" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"
+                [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today" formControlName="date_end" dateMask />
+            <div class="p-error" [innerHTML]="generateErrorMessages('date_end')"></div>
+        </div>
+    </div>
+    <button type="submit" #submitButton hidden></button>
+</form>
+<div class="px-4 pt-4 footer-custom">
+    <p-button label="CANCELAR" [outlined]="true" styleClass="mr-2 " icon="pi pi-times" (click)="close()" />
+    <p-button (click)="submitButton.click()" styleClass="bg-principal" [label]="isCreationMode()?'REGISTRAR':'GUARDAR'"
+        icon="pi pi-save" />
+</div>

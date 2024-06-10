@@ -1,0 +1,42 @@
+<div class="mt-3 flex">
+    <app-current-calls-filters class="w-full" (filtersChange)="onFiltersChange($event)"
+        (searchFilterChange)="onSearchFilterChange($event)"></app-current-calls-filters>
+    <div class="ml-2">
+        <p-button label="Postule aquí" styleClass="w-[140px] bg-principal" icon="pi pi-plus" (click)="postulate()"
+            scrollToUp />
+    </div>
+</div>
+<p-table styleClass="p-datatable-sm p-datatable-gridlines" [value]="data" [lazy]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th id="" class="bg-secondary text-white"> Puesto de Trabajo </th>
+            <th id="" class="bg-secondary text-white text-center"> Nro. de Vacantes </th>
+            <th id="" class="bg-secondary text-white text-center"> Requisitos </th>
+            <th id="" class="bg-secondary text-white text-center"> Contratista </th>
+            <th id="" class="bg-secondary text-white text-center"> Peridodo de Postulación </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-element>
+        <tr>
+            <td> {{element.jobPositionName}} </td>
+            <td class="text-center"> {{element.quantity}} </td>
+            <td class="text-center">
+                <span class="underline text-blue-700 cursor-pointer" (click)="openDialog(element.id)"
+                    (keypress)="openDialog(element.id)">Ver
+                    requisitos</span>
+            </td>
+            <td class="text-center"> {{element.companyName}} </td>
+            <td class="text-center"> {{element.startDate | date:"dd/MM/yyyy"}} - {{element.endDate |
+                date:"dd/MM/yyyy"}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="5">Sin datos que mostrar</td>
+        </tr>
+    </ng-template>
+</p-table>
+<div class="flex justify-end">
+    <p-paginator [totalRecords]="totalRecords" [first]="pageIndex" [rows]="pageSize"
+        [rowsPerPageOptions]="pageSizeOptions"></p-paginator>
+</div>
