@@ -65,6 +65,18 @@ export class PersonalInformationComponent extends FormBaseComponent<Person> impl
     return dayjs(fieldName).format('DD/MM/YYYY');
   }
 
+  private buildFullName(model: any): string {
+    return `${model.firstName} ${model.lastPatName} ${model.lastMatName}`;
+  }
+
+  override getPostData(): any {
+    const model = super.getPostData();
+    return {
+      ...model,
+      name: this.buildFullName(model),
+    };
+  };
+
   override getSaveService(model: any): Observable<any> {
     return this.service.updateInfoPersona(model, model.id)
   }

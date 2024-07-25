@@ -10,6 +10,7 @@ import { TEXT } from '../../../constants/text';
 import { TableModule } from 'primeng/table';
 import { Column } from '../../../core/interfaces/column';
 import { PaginatorModule } from 'primeng/paginator';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-current-calls',
@@ -18,6 +19,7 @@ import { PaginatorModule } from 'primeng/paginator';
     CommonModule,
     TableModule,
     PaginatorModule,
+    ButtonModule
   ],
   templateUrl: './current-calls.component.html',
   providers: [DialogService]
@@ -37,9 +39,9 @@ export class CurrentCallsComponent extends TableViewComponent<any> implements On
     super.ngOnInit();
 
     this.columns = [
-      { field: 'puesto', header: 'Puesto de Trabajo' },
-      { field: 'vacantes', header: 'Nro. de Vacantes' },
-      { field: 'contratista', header: 'Contratista' },
+      { field: 'jobPositionName', header: 'Puesto de Trabajo' },
+      { field: 'quantity', header: 'Nro. de Vacantes' },
+      { field: 'companyName', header: 'Contratista' },
       { field: 'periodo', header: 'Periodo de Postulación' },
     ];
   }

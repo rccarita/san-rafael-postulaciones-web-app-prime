@@ -4,22 +4,18 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CommonService } from '../../core/services/common.service';
 import { ButtonModule } from 'primeng/button';
-import { MenuModule } from 'primeng/menu';
-import { MenubarModule } from 'primeng/menubar';
-import { TieredMenuModule } from 'primeng/tieredmenu';
 import { ImageModule } from 'primeng/image';
-
-
+import { AvatarModule } from 'primeng/avatar';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     CommonModule,
     ButtonModule,
-    MenuModule,
-    MenubarModule,
-    TieredMenuModule,
     ImageModule,
+    AvatarModule,
+    OverlayPanelModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

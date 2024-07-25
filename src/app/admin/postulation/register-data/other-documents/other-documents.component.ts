@@ -28,17 +28,15 @@ import { TEXT } from '../../../../constants/text';
 })
 export class OtherDocumentsComponent {
 
-  files = [];
+  documents = [];
   totalSize: number = 0;
   totalSizePercent: number = 0;
+
   person = input<Person>();
   filesUploaded = input<FilesUpload[]>();
   documentUpload: any;
   documentName: string = "";
   urlViewer: any;
-  fileUpload: File | null = null;
-  fileName: string = "";
-  fileSelected: boolean = false;
   documentSelected: boolean = false;
   @Output() documentsUpdated = new EventEmitter<void>();
 
@@ -50,12 +48,11 @@ export class OtherDocumentsComponent {
   private config = inject(PrimeNGConfig);
 
   onSelectedDocuments(event: any) {
-    this.files = event.currentFiles.slice(0, 1);
-    if (this.files.length > 0) {
-      const file: File = this.files[0];
-      this.fileUpload = file;
-      this.fileName = file.name;
-      this.fileSelected = true;
+    this.documents = event.currentFiles.slice(0, 1);
+    if (this.documents.length > 0) {
+      const file: File = this.documents[0];
+      this.documentUpload = file;
+      this.documentName = file.name;
       this.totalSize = parseInt(this.formatSize(file.size));
       this.totalSizePercent = this.totalSize / 10;
     }
@@ -71,14 +68,15 @@ export class OtherDocumentsComponent {
 
   onRemoveTemplatingFile(event: any, file: any, removeFileCallback: any, index: any) {
     removeFileCallback(event, index);
-    this.clearUploadDocument();
+    this.totalSize -= parseInt(this.formatSize(file.size));
+    this.totalSizePercent = this.totalSize / 10;
   }
 
   onClearTemplatingUpload(clear: any) {
     clear();
-    this.clearUploadDocument();
+    this.totalSize = 0;
+    this.totalSizePercent = 0;
   }
-
   formatSize(bytes: any) {
     const k = 1024;
     const dm = 3;
@@ -135,7 +133,8 @@ export class OtherDocumentsComponent {
       rejectButtonStyleClass: 'p-button-outlined',
       accept: () => {
         this.handleDeleteConfirmation(id);
-      }
+      },
+      key: 'document'
     });
   }
 
@@ -178,10 +177,9 @@ export class OtherDocumentsComponent {
   }
 
   clearUploadDocument() {
-    this.fileUpload = null;
-    this.fileName = "";
-    this.fileSelected = false;
-    this.files = [];
+    this.documentUpload = null;
+    this.documentName = "";
+    this.documents = [];
     this.totalSize = 0;
     this.totalSizePercent = 0;
   }

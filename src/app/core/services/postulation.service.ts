@@ -17,6 +17,7 @@ export class HeadersParams {
 })
 export class PostulationService {
 
+    private localUrl = 'http://localhost:3000';
     private baseUrl = `${environment.baseUrl}/api/mol/public/request`;
     private authUrl = `${environment.baseUrl}/api/auth/j_spring_security_check_simple`;
     private baseAdminUrl = `${environment.baseUrl}/api/admin`;

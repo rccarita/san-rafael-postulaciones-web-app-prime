@@ -1,0 +1,145 @@
+{
+    "posts": [
+        {
+            "id": "1",
+            "title": "a title",
+            "views": 100
+        },
+        {
+            "id": "2",
+            "title": "another title",
+            "views": 200
+        }
+    ],
+    "comments": [
+        {
+            "id": "1",
+            "text": "a comment about post 1",
+            "postId": "1"
+        },
+        {
+            "id": "2",
+            "text": "another comment about post 1",
+            "postId": "1"
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    },
+    "work-offers": [
+        {
+            "id": "1",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "2",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "3",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "4",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "5",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "6",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "7",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        }
+    ],
+    "work-offers-history": [
+        {
+            "id": "1",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "2",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "3",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "4",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "5",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "6",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        },
+        {
+            "id": "7",
+            "jobPositionName": "Developer",
+            "quantity": 32,
+            "requirements": "some requirements",
+            "companyName": "Company Name",
+            "startDate": "2020-01-01"
+        }
+    ]
+}

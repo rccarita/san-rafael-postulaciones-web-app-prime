@@ -12,9 +12,8 @@
             <ng-template pTemplate="header">
                 <tr>
                     <ng-container *ngFor="let column of columns">
-                        <th pSortableColumn="{{column.field}}" class="bg-secondary text-white text-sm">
-                            {{column.header}}<p-sortIcon field="{{column.field}}" />
-                        </th>
+                        <th class="bg-secondary text-white text-sm">
+                            {{column.header}}</th>
                     </ng-container>
                     <th class="bg-secondary text-white text-sm">Postular</th>
                 </tr>
@@ -26,14 +25,17 @@
                             <span class="underline text-blue-700 cursor-pointer" (click)="openDialog(element.id)"
                                 (keypress)="openDialog(element.id)">Ver requisitos</span>
                         </td>
-                        <td *ngIf="column.field === 'periodo'" class="text-center"> {{element.startDate |
-                            date:"dd/MM/yyyy"}} - {{element.endDate |
-                            date:"dd/MM/yyyy"}}</td>
-                        <td *ngIf="column.field !== 'requirements' && 'periodo'">
+                        <td *ngIf="column.field === 'periodo'" class="text-center">
+                            {{element.startDate | date:"dd/MM/yyyy"}} - {{element.endDate | date:"dd/MM/yyyy"}}
+                        </td>
+                        <td *ngIf="column.field !== 'requirements' && column.field !== 'periodo'">
                             {{element[column.field]}}
                         </td>
                     </ng-container>
-                    <td><button (click)="openDialog(element.id)">Postular</button></td>
+                    <td class="text-center">
+                        <p-button icon="pi pi-check-square" styleClass="p-0"
+                            (click)="openDialog(element.id)"></p-button>
+                    </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="emptymessage">

@@ -113,7 +113,8 @@ export class UploadCvComponent {
       rejectButtonStyleClass: 'p-button-outlined',
       accept: () => {
         this.handleUploadConfirmation(callback);
-      }
+      },
+      key: "cv",
     });
   }
 
