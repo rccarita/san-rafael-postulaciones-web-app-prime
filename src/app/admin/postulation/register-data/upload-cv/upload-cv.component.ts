@@ -69,10 +69,6 @@ export class UploadCvComponent {
     this.clearUploadFile();
   }
 
-  onTemplatedUpload() {
-    this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
-  }
-
   formatSize(bytes: any) {
     const k = 1024;
     const dm = 3;
@@ -108,13 +104,14 @@ export class UploadCvComponent {
   uploadFile(callback: any): void {
     this.confirmationService.confirm({
       message: '¿Está seguro que desea cargar el documento?',
-      header: TEXT.DELETE_TITLE,
-      icon: 'pi pi-info-circle custom-icon',
+      header: TEXT.CV_TITLE,
+      icon: 'pi pi-info-circle custom-icon-info',
+      acceptLabel: TEXT.ACCEPT,
+      rejectLabel: TEXT.REJECT,
       rejectButtonStyleClass: 'p-button-outlined',
       accept: () => {
         this.handleUploadConfirmation(callback);
       },
-      key: "cv",
     });
   }
 

@@ -145,6 +145,8 @@ export class WorkExperienceComponent extends TableViewComponent<any> implements 
       message: '¿Está seguro que desea eliminar el registro?',
       header: TEXT.DELETE_TITLE,
       icon: 'pi pi-info-circle custom-icon',
+      acceptLabel: TEXT.ACCEPT,
+      rejectLabel: TEXT.REJECT,
       rejectButtonStyleClass: 'p-button-outlined',
       accept: () => {
         this.handleDeleteConfirmation(id);

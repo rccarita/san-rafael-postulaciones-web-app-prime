@@ -94,8 +94,10 @@ export class OtherDocumentsComponent {
   uploadFile(callback: any): void {
     this.confirmationService.confirm({
       message: '¿Está seguro que desea cargar el documento?',
-      header: TEXT.DELETE_TITLE,
-      icon: 'pi pi-info-circle custom-icon',
+      header: TEXT.DOCUMENT_TITLE,
+      icon: 'pi pi-info-circle custom-icon-info',
+      acceptLabel: TEXT.ACCEPT,
+      rejectLabel: TEXT.REJECT,
       rejectButtonStyleClass: 'p-button-outlined',
       accept: () => {
         this.handleUploadConfirmation(callback);
@@ -116,7 +118,7 @@ export class OtherDocumentsComponent {
         next: (res: any) => {
           callback();
           this.documentsUpdated.emit();
-          this.messageService.add({ severity: 'success', detail: TEXT.CV_MESSAGE, life: 3000, });
+          this.messageService.add({ severity: 'success', detail: TEXT.DOCUMENT_MESSAGE, life: 3000, });
           this.clearUploadDocument();
         },
         error: (xhr: any) => {
@@ -127,14 +129,15 @@ export class OtherDocumentsComponent {
 
   deleteDocument(id: any): void {
     this.confirmationService.confirm({
-      message: '¿Está seguro que desea eliminar el registro?',
+      message: '¿Está seguro que desea eliminar el documento?',
       header: 'Eliminar documento!',
       icon: 'pi pi-info-circle custom-icon',
+      acceptLabel: 'Aceptar',
+      rejectLabel: 'Cancelar',
       rejectButtonStyleClass: 'p-button-outlined',
       accept: () => {
         this.handleDeleteConfirmation(id);
       },
-      key: 'document'
     });
   }
 
@@ -142,7 +145,7 @@ export class OtherDocumentsComponent {
     this.service.removeDocument(id)
       .subscribe({
         next: (res: any) => {
-          this.messageService.add({ severity: 'success', detail: TEXT.CV_MESSAGE, life: 3000, });
+          this.messageService.add({ severity: 'success', detail: TEXT.CONFIRM_DELETE, life: 3000, });
           this.documentsUpdated.emit();
           this.clearUploadDocument();
         },

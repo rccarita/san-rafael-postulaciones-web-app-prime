@@ -152,7 +152,7 @@ export abstract class FormDialogComponent<T> implements OnInit {
         const message = me.isCreationMode()
             ? me.getSuccessCreationMessage(rec)
             : me.getSuccessUpdateMessage(rec);
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: `${message}`, life: 3000 });
+        this.messageService.add({ severity: 'success', detail: `${message}`, life: 3000 });
         me.dialogRef.close(rec);
     }
 

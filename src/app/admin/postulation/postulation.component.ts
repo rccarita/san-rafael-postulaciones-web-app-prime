@@ -23,11 +23,13 @@ import { PersonalInformationDataBirthComponent } from './register-data/personal-
 import { PersonalInformationDataUbigeoComponent } from './register-data/personal-information/personal-information-data-ubigeo/personal-information-data-ubigeo.component';
 import { UploadCvComponent } from './register-data/upload-cv/upload-cv.component';
 import { OtherDocumentsComponent } from './register-data/other-documents/other-documents.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-postulation',
   standalone: true,
   imports: [
+    CommonModule,
     HeaderComponent,
     FooterComponent,
     CurrentCallsComponent,
@@ -54,7 +56,7 @@ import { OtherDocumentsComponent } from './register-data/other-documents/other-d
   ]
 })
 export class PostulationComponent implements OnInit {
-
+  activeIndex: number = 0;
   documentTypes!: CboModel[];
   civilStates!: CboModel[];
   genders!: CboModel[];
