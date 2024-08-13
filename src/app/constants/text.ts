@@ -1,6 +1,6 @@
 export const TEXT = {
     CONFIRM_DELETE: 'Eliminado correctamente!',
-    DELETE_TITLE: '!ERROR!',
+    DELETE_TITLE: '!CONFIRMAR!',
     CONFIRM_UPDATE: 'Actualizado correctamente!',
     CALLS_TITLE: 'CONVOCATORIA DE EMPLEO',
     REGISTER_TITLE: 'INGRESAR DATOS DE ACCESO',

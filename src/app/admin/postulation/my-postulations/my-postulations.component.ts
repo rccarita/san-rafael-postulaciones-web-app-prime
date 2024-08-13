@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TableViewComponent } from '../../../shared/table-view.component';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Column } from '../../../core/interfaces/column';
 import { PostulationService } from '../../../core/services/postulation.service';
 import { NotificationService } from '../../../core/services/notification/notification.service';
 import { CommonService } from '../../../core/services/common.service';
@@ -13,6 +12,7 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { PaginatorModule } from 'primeng/paginator';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-my-postulations',
@@ -23,6 +23,7 @@ import { PaginatorModule } from 'primeng/paginator';
     ButtonModule,
     ConfirmDialogModule,
     PaginatorModule,
+    ToastModule,
   ],
   templateUrl: './my-postulations.component.html',
   providers: [
@@ -64,6 +65,8 @@ export class MyPostulationsComponent extends TableViewComponent<any> implements 
       header: TEXT.DELETE_TITLE,
       icon: 'pi pi-info-circle custom-icon',
       rejectButtonStyleClass: 'p-button-outlined',
+      acceptLabel: TEXT.ACCEPT,
+      rejectLabel: TEXT.REJECT,
       accept: () => {
         this.handleDeleteConfirmation(id);
       }

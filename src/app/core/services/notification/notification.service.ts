@@ -37,6 +37,11 @@ export class NotificationService {
             this.showBadRequestNotification(xhr);
             return;
         }
+        // Bad Request: 422
+        if (status === 422) {
+            this.showBadRequestNotification(xhr);
+            return;
+        }
         // Authentication Required: 401
         if (status === 401) {
             this.showBadRequestNotification(xhr);
