@@ -14,9 +14,9 @@ export class TableViewComponent<T> implements OnInit, AfterViewInit {
     @ViewChild(Paginator) paginator?: Paginator;
     @Output() selectionChange = new EventEmitter<T[]>();
     autoLoad = true;
-    pageSize = 10;
+    pageSize = 5;
     pageIndex = 0;
-    pageSizeOptions = [10, 25, 50, 100];
+    pageSizeOptions = [5, 10, 25, 50, 100];
     serviceResponseDataProperty = 'data';
     filters: CollectionFilter[] = [];
     _loadSubscription?: Subscription;

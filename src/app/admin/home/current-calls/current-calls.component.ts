@@ -53,11 +53,15 @@ export class CurrentCallsComponent extends TableViewComponent<any> implements On
         id: id,
         postulate: false,
       },
-      width: '60vh',
-      contentStyle: { overflow: 'visible' },
+      width: '100vh',
+      contentStyle: { overflow: 'auto' },
       header: TEXT.CALLS_TITLE,
       draggable: true,
       styleClass: 'custom-header-dialog'
     });
+  }
+  
+  refreshData() {
+    this.loadData();
   }
 }

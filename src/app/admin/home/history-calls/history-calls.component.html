@@ -1,13 +1,16 @@
-<div class="mt-3">
+<div class="mt-3 flex">
     <app-history-calls-filters class="w-full" (filtersChange)="onFiltersChange($event)"
         (searchFilterChange)="onSearchFilterChange($event)"></app-history-calls-filters>
+    <div class="ml-2">
+        <p-button icon="pi pi-refresh" class="ml-2" (click)="refreshData()" />
+    </div>
 </div>
 <p-table styleClass="p-datatable-sm p-datatable-gridlines" [value]="data" [lazy]="true">
     <ng-template pTemplate="header">
         <tr>
             <ng-container *ngFor="let column of columns">
-                <th pSortableColumn="{{column.field}}" class="bg-secondary text-white text-sm">
-                    {{column.header}}<p-sortIcon field="{{column.field}}" />
+                <th class="bg-secondary text-center text-white">
+                    {{column.header}}
                 </th>
             </ng-container>
         </tr>

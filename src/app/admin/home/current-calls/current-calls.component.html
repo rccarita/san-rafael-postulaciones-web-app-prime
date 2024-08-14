@@ -1,9 +1,10 @@
 <div class="mt-3 flex">
     <app-current-calls-filters class="w-full" (filtersChange)="onFiltersChange($event)"
         (searchFilterChange)="onSearchFilterChange($event)"></app-current-calls-filters>
-    <div class="ml-2">
+    <div class="ml-2 flex">
         <p-button label="Postule aquí" styleClass="w-[160px]" [outlined]="true" icon="pi pi-plus" (click)="postulate()"
             scrollToUp />
+        <p-button icon="pi pi-refresh" class="ml-2" (click)="refreshData()" />
     </div>
 </div>
 <p-table styleClass="p-datatable-sm p-datatable-gridlines" [value]="data" [lazy]="true">

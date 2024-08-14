@@ -60,11 +60,15 @@ export class HistoryCallsComponent extends TableViewComponent<any> implements On
         id: id,
         postulate: false,
       },
-      width: '70vh',
+      width: '100vh',
       contentStyle: { overflow: 'visible' },
       header: TEXT.CALLS_TITLE,
       draggable: true,
       styleClass: 'custom-header-dialog'
     });
+  }
+
+  refreshData() {
+    this.loadData();
   }
 }
