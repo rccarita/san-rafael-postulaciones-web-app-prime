@@ -52,7 +52,7 @@ export class CurrentCallsComponent extends TableViewComponent<any> implements On
         id: id,
         postulate: true
       },
-      width: '70vh',
+      width: '100vh',
       header: TEXT.CALLS_TITLE,
       contentStyle: { 'overflow': 'auto' },
       draggable: true,
