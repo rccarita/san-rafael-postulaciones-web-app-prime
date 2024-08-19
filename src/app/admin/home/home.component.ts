@@ -29,7 +29,8 @@ import { FooterComponent } from '../../shared/footer/footer.component';
             border-top-left-radius: 0px;
         }
     }
-}`
+  }
+  `
 })
 export class HomeComponent {
 
