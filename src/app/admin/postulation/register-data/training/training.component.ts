@@ -141,7 +141,7 @@ export class TrainingComponent extends TableViewComponent<any> implements OnInit
         trainingLevel: this.trainingLevel,
         personId: this.personId.id,
       },
-      width: '50vh',
+      width: '50%',
       header: TEXT.REGISTER_TITLE,
       contentStyle: { 'overflow': 'scroll' },
       draggable: true,
@@ -161,7 +161,7 @@ export class TrainingComponent extends TableViewComponent<any> implements OnInit
         capacitationType: this.capacitationType,
         trainingLevel: this.trainingLevel
       },
-      width: '50vh',
+      width: '50%',
       header: TEXT.REGISTER_TITLE,
       contentStyle: { 'overflow': 'scroll' },
       draggable: true,

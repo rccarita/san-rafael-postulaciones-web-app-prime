@@ -108,7 +108,7 @@ export class LoginComponent {
 
   openDialogRegister(): void {
     this.ref = this.dialogService.open(RegisterDialogComponent, {
-      width: '70vh',
+      width: '70%',
       header: TEXT.REGISTER_TITLE,
       contentStyle: { 'overflow': 'auto' },
       draggable: true,

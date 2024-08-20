@@ -1,13 +1,16 @@
 <header>
     <div class="fixed inset-0 flex h-24 justify-between z-10" [class.navbar-fixed]="scrolled">
         <div class="container-logo flex items-center">
-            <img [src]="scrolled ? '/assets/images/minsur.png' : '/assets/images/minsur-blanco.png'" alt="logo">
+            <img class="ml-4" [src]="scrolled ? '/assets/images/minsur.png' : '/assets/images/minsur-blanco.png'" alt="logo">
         </div>
         <div class="flex items-center">
-            <p-button [severity]="scrolled ? 'warning' : 'success'" size="small" [raised]="true" class="mr-4"
-                href="https://gesso-sanrafael.stcloud.app/ayudapostulante/" target="_blank">Ver Manual</p-button>
+            <a href="https://gesso-sanrafael.stcloud.app/ayudapostulante/" target="_blank">
+                <p-button [severity]="scrolled ? 'warning' : 'success'" size="small" [raised]="true" class="mr-4">
+                    Ver Manual
+                </p-button>
+            </a>
             <img class="h-full" src="/assets/images/colores-minsur.png" alt="colors">
-        </div>
+        </div>        
     </div>
 
     <div class="m-0 h-100 w-full relative">
