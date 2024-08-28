@@ -91,7 +91,7 @@ export class NotificationService {
         me.confirmationService.confirm({
             message,
             header: me.xhrErrorMessageTitle,
-            icon: 'pi pi-info-circle custom-icon',
+            icon: 'pi pi-exclamation-triangle custom-icon',
             dismissableMask: true,
             acceptVisible: false,
             rejectVisible: false,

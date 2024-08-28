@@ -1,7 +1,7 @@
 <p-toast />
 <div class="py-4"><span class="font-bold">Adjuntar/Ver Documento</span></div>
 <p-fileUpload name="myfile[]" url="https://www.primefaces.org/cdn/api/upload.php" [multiple]="false"
-    accept=".pdf,.doc,.docx" maxFileSize="1000000" (onSelect)="onSelectedFiles($event)">
+    accept=".pdf,.doc,.docx" maxFileSize="25000000" (onSelect)="onSelectedFiles($event)">
     <ng-template pTemplate="header" let-files let-chooseCallback="chooseCallback" let-clearCallback="clearCallback"
         let-uploadCallback="uploadCallback">
         <div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2">

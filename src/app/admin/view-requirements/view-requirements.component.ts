@@ -70,7 +70,7 @@ export class ViewRequirementsComponent {
     this.confirmationService.confirm({
       message: '¿Está seguro que desea postular a este empleo?',
       header: 'Postulación',
-      icon: 'pi pi-info-circle custom-icon',
+      icon: 'pi pi-info-circle custom-icon-info',
       acceptLabel: TEXT.ACCEPT,
       rejectLabel: TEXT.REJECT,
       rejectButtonStyleClass: 'p-button-outlined',
