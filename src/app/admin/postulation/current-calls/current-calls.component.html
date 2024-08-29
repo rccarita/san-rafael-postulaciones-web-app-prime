@@ -25,7 +25,7 @@
                             <span class="underline text-blue-700 cursor-pointer" (click)="openDialog(element.id)"
                                 (keypress)="openDialog(element.id)">Ver requisitos</span>
                         </td>
-                        <td *ngIf="column.field === 'periodo'" class="text-center">
+                        <td *ngIf="column.field === 'periodo'">
                             {{element.startDate | date:"dd/MM/yyyy"}} - {{element.endDate | date:"dd/MM/yyyy"}}
                         </td>
                         <td *ngIf="column.field !== 'requirements' && column.field !== 'periodo'">

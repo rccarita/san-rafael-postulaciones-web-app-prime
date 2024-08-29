@@ -22,7 +22,10 @@
             <ng-template pTemplate="body" let-element>
                 <tr>
                     <ng-container *ngFor="let column of columns">
-                        <td>{{element[column.field]}}</td>
+                        <td *ngIf="column.field === 'dateInscription'">
+                            {{element.dateInscription | date:"dd/MM/yyyy"}}
+                        </td>
+                        <td *ngIf="column.field !== 'dateInscription'">{{element[column.field]}}</td>
                     </ng-container>
                     <td>
                         <div class="text-center">
