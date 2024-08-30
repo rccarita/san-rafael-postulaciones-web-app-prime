@@ -13,7 +13,7 @@ export class NotificationService {
 
     noConnectionErrorMessage = 'No se pudo establecer conexión con el servidor';
     unknownErrorMessage = 'Ocurrió un error desconocido.';
-    private xhrErrorMessageTitle = '¡Ocurrió un error!';
+    private xhrErrorMessageTitle = `¡Ocurrió un error!`;
     private xhrErrorMessageTpl = `
     <div>{message}</div>
     <div class="flex justify-center">
@@ -93,8 +93,9 @@ export class NotificationService {
             header: me.xhrErrorMessageTitle,
             icon: 'pi pi-exclamation-triangle custom-icon',
             dismissableMask: true,
+            rejectButtonStyleClass: 'custom-error-dialog',
             acceptVisible: false,
-            rejectVisible: false,
+            rejectLabel: 'Cerrar',
         });
     }
 
