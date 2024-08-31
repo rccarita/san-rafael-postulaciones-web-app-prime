@@ -64,7 +64,8 @@
     </ng-template>
 </p-fileUpload>
 <div class="mt-8" *ngIf="person != null && person()!.hasCV">
-    <span class="max-w-full mb-1 font-bold">Curriculum Vitae:</span>
+    <h3>Nombre Curriculum Vitae: <mark>{{ person()!.cvName || 'No ha subido ningún Curriculum Vitae' }}</mark></h3>
+    <span class="max-w-full mb-1 font-bold">Curriculum Vitae opcciones:</span>
     <div class="mt-4">
         <p-button label="Ver Documento" icon="pi pi-file" [outlined]="true" ngClass="mr-2" (onClick)="viewFile()"
             severity="success" />

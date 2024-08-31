@@ -24,6 +24,7 @@ export interface Person {
     createdby: string;
     cvId: string;
     cvUrlViewer: string;
+    cvName: string;
     dead: boolean;
     description: string;
     docTypeId: number;
