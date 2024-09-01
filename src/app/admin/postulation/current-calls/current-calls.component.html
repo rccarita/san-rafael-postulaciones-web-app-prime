@@ -8,6 +8,12 @@
             actualizados a la fecha de postulación. De no ser el caso,
             podrá editar la información a fin de realizar las modificaciones que correspondan.
         </p>
+        <div class="flex justify-between ml-2">
+            <app-current-calls-filters (filtersChange)="onFiltersChange($event)"
+                (searchFilterChange)="onSearchFilterChange($event)"></app-current-calls-filters>
+            <p-button icon="pi pi-refresh" class="mr-2" (click)="refreshData()" />
+        </div>
+
         <p-table styleClass="p-datatable-sm p-datatable-gridlines" [value]="data" [lazy]="true">
             <ng-template pTemplate="header">
                 <tr>

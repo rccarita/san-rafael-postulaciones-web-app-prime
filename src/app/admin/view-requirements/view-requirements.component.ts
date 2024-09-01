@@ -34,6 +34,7 @@ export class ViewRequirementsComponent {
   workOffers: any = {};
   dataId!: string;
   viewPostulate!: boolean;
+  endHour: string = '11:50 PM'
 
   private service = inject(PostulationService);
   private data = inject(DynamicDialogConfig);

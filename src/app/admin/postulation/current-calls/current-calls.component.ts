@@ -11,6 +11,7 @@ import { TableModule } from 'primeng/table';
 import { Column } from '../../../core/interfaces/column';
 import { PaginatorModule } from 'primeng/paginator';
 import { ButtonModule } from 'primeng/button';
+import { CurrentCallsFiltersComponent } from '../../home/current-calls/current-calls-filters/current-calls-filters.component';
 
 @Component({
   selector: 'app-current-calls',
@@ -19,7 +20,8 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     TableModule,
     PaginatorModule,
-    ButtonModule
+    ButtonModule,
+    CurrentCallsFiltersComponent,
   ],
   templateUrl: './current-calls.component.html',
   providers: [DialogService]
@@ -63,5 +65,9 @@ export class CurrentCallsComponent extends TableViewComponent<any> implements On
   override getListService(): Observable<any> {
     const id = this.commonService.getPersonId();
     return this.service.myWorkOffersList(id, this.getCollectionQueryParams(true));
+  }
+
+  refreshData(){
+    this.loadData();
   }
 }
