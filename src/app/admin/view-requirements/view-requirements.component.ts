@@ -87,7 +87,7 @@ export class ViewRequirementsComponent {
       next: (_) => {
         this.messageService.add({ severity: 'success', detail: 'La postulación se realizó correctamente', life: 3000, });
         setTimeout(() => {
-          this.dialogRef.close();
+          this.dialogRef.close(true);
         }, 1000);
       },
       error: (xhr: any) => {

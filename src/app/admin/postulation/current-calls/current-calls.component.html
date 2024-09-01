@@ -21,7 +21,7 @@
                         <th class="bg-secondary text-white text-sm">
                             {{column.header}}</th>
                     </ng-container>
-                    <th class="bg-secondary text-white text-sm">Postular</th>
+                    <th class="bg-secondary text-white text-sm text-center">Postular</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-element>
@@ -39,7 +39,9 @@
                         </td>
                     </ng-container>
                     <td class="text-center">
-                        <p-button icon="pi pi-check-square" styleClass="p-0"
+                        <p-button [icon]="element.hasCurrentPostulantion ? 'pi pi-check-circle' : 'pi pi-circle-off'"
+                            styleClass="p-0 border-none" [disabled]="element.hasCurrentPostulantion"
+                            [style]="{'background-color': element.hasCurrentPostulantion ? 'green' : 'red'}"
                             (click)="openDialog(element.id)"></p-button>
                     </td>
                 </tr>

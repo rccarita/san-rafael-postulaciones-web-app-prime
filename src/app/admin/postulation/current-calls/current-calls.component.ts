@@ -60,6 +60,12 @@ export class CurrentCallsComponent extends TableViewComponent<any> implements On
       draggable: true,
       styleClass: 'custom-header-dialog'
     });
+
+    this.ref.onClose.subscribe((res: any) => {
+      if (res) {
+        this.loadData();
+      }
+    });
   }
 
   override getListService(): Observable<any> {
