@@ -35,7 +35,7 @@
                         <label for="date">Fecha Nacimiento</label>
                         <p-calendar id="date" appendTo="body" placeholder="DD/MM/YYYY" [showIcon]="true"
                             inputId="icondisplay" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [maxDate]="today"
-                            formControlName="date" dateMask />
+                            formControlName="date" appDateMask />
                         @if( userLoginForm.get('date')?.invalid && userLoginForm.get('date')?.touched){
                         <span class="p-error block">Requerido</span>}
                     </div>

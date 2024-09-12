@@ -1,15 +1,18 @@
-import { AfterViewInit, Directive } from '@angular/core';
+import { Directive, AfterViewInit } from '@angular/core';
 import { Calendar } from 'primeng/calendar';
 import Inputmask from 'inputmask';
 
 @Directive({
-    selector: '[dateMask]'
+    selector: '[appDateMask]'
 })
 export class DateMaskDirective implements AfterViewInit {
     constructor(private primeCalendar: Calendar) { }
 
     ngAfterViewInit() {
-        new Inputmask(this.getDateMask()).mask(this.getHTMLInput());
+        const inputElement = this.getHTMLInput();
+        if (inputElement) {
+            new Inputmask(this.getDateMask()).mask(inputElement);
+        }
     }
 
     getHTMLInput(): HTMLInputElement {
