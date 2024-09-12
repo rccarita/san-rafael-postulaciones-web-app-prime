@@ -45,6 +45,7 @@ export class PersonalInformationComponent extends FormBaseComponent<Person> impl
   }
 
   _SetData(): void {
+    console.log(this.personId());
     this.setPersonaForm(this.personId()!);
   }
   setPersonaForm(person: Person): void {

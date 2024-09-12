@@ -10,6 +10,7 @@ import { HistoryCallsFiltersComponent } from './history-calls-filters/history-ca
 import { ViewRequirementsComponent } from '../../view-requirements/view-requirements.component';
 import { TEXT } from '../../../constants/text';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { JobPosition } from '../../../models/job-position';
 
 @Component({
   selector: 'app-history-calls',
@@ -25,9 +26,9 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
     DialogService,
   ]
 })
-export class HistoryCallsComponent extends TableViewComponent<any> implements OnInit {
+export class HistoryCallsComponent extends TableViewComponent<JobPosition> implements OnInit {
   ref: DynamicDialogRef | undefined;
-  columns: any[] = [];
+  columns: Column[] = [];
 
   constructor(
   ) {

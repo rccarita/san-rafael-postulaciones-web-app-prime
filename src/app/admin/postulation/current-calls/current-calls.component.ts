@@ -27,7 +27,7 @@ import { CurrentCallsFiltersComponent } from '../../home/current-calls/current-c
   providers: [DialogService]
 })
 export class CurrentCallsComponent extends TableViewComponent<any> implements OnInit {
-  columns: any[] = [];
+  columns: Column[] = [];
   ref: DynamicDialogRef | undefined;
   constructor() {
     super();

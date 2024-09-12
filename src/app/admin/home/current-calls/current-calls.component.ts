@@ -9,6 +9,7 @@ import { CurrentCallsFiltersComponent } from './current-calls-filters/current-ca
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ViewRequirementsComponent } from '../../view-requirements/view-requirements.component';
 import { TEXT } from '../../../constants/text';
+import { JobPosition } from '../../../models/job-position';
 
 @Component({
   selector: 'app-current-calls',
@@ -24,7 +25,7 @@ import { TEXT } from '../../../constants/text';
     DialogService,
   ],
 })
-export class CurrentCallsComponent extends TableViewComponent<any> implements OnInit {
+export class CurrentCallsComponent extends TableViewComponent<JobPosition> implements OnInit {
 
   ref: DynamicDialogRef | undefined;
 

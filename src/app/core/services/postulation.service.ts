@@ -5,19 +5,14 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { CollectionQueryParams } from '../interfaces/collection-query-params';
 import { HttpListService } from '../http/http-list.service';
-
-
-export class HeadersParams {
-    headers!: HttpHeaders;
-    HttpParams!: HttpParams;
-}
+import { ApiResponse } from '../interfaces/api-response';
+import { JobPosition } from '../../models/job-position';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PostulationService {
 
-    private localUrl = 'http://localhost:3000';
     private baseUrl = `${environment.baseUrl}/api/mol/public/request`;
     private authUrl = `${environment.baseUrl}/api/auth/j_spring_security_check_simple`;
     private baseAdminUrl = `${environment.baseUrl}/api/admin`;
@@ -39,13 +34,13 @@ export class PostulationService {
         return new HttpParams().set('_dc', date.getTime());
     }
 
-    public getOffers(queryParams?: CollectionQueryParams) {
+    public getOffers(queryParams?: CollectionQueryParams): Observable<ApiResponse<JobPosition[]>> {
         return this.httpListService
-            .get<any>(this.baseUrl + '/work-offers', queryParams);
+            .get<ApiResponse<JobPosition[]>>(this.baseUrl + '/work-offers', queryParams);
     }
 
-    public getOffersHistory(queryParams?: CollectionQueryParams) {
-        return this.httpListService.get<any>(this.baseUrl + '/work-offers-history', queryParams);
+    public getOffersHistory(queryParams?: CollectionQueryParams): Observable<ApiResponse<JobPosition[]>> {
+        return this.httpListService.get<ApiResponse<JobPosition[]>>(this.baseUrl + '/work-offers-history', queryParams);
     }
 
     public authentication(body: any) {
